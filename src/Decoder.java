@@ -18,11 +18,12 @@ public class Decoder {
 	    try {
 	       MyService = new ServerSocket(3000);
 	       serviceSocket = MyService.accept();
-	       System.out.println("Hello World");
 	       input = new BufferedReader(new InputStreamReader(serviceSocket.getInputStream()));
 	       output = new DataOutputStream(serviceSocket.getOutputStream());
 	       while (true) {
+	    	   //System.out.println("Tester2");
 	    	   inputString = input.readLine();
+	    	   System.out.println("First:" + inputString);
 				if ( inputString.equals("request-to-send") ) {
 					output.writeUTF("clear-to-send");
 					System.out.println(inputString);

@@ -21,12 +21,13 @@ public class Encoder {
 		String s = getInput();
 		
 		try {
-			host = args[0];
-			System.out.println(args[0]);
+			host = "Collins-MacBook-Air.local";
 			MyClient = new Socket(host, 3000);
 			input = new BufferedReader(new InputStreamReader(MyClient.getInputStream()));
 			output = new DataOutputStream(MyClient.getOutputStream());
 			
+			output.writeUTF("request-to-send");
+			System.out.println("Tester3");
 			while (true) {
 				inputString = input.readLine();
 				if ( inputString.equals("clear-to-send") ) {
